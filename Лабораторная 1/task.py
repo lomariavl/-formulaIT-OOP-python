@@ -2,6 +2,9 @@ import doctest
 
 
 class RoadSign:
+    """
+    Класс "Дорожный знак" описывает категории дорожных знаков и их физический размер
+    """
     def __init__(self, sign_type: str, size: int):
         """
        Создание и подготовка к работе объекта "Дорожный знак"
@@ -45,6 +48,9 @@ class RoadSign:
 
 
 class Transport:
+    """
+    Класс "Транспорт" описывает вид и модель транспорта
+    """
     def __init__(self, transport_type: str, brand: str):
         """
         Создание и подготовка к работе объекта "Транспорт"
@@ -92,6 +98,9 @@ class Transport:
 
 
 class Headlights:
+    """
+    Класс "Фары" описывает расположение и яркость фары
+    """
     def __init__(self, location: str, brightness: int):
         """
         Создание и подготовка к работе объекта "Фары"
