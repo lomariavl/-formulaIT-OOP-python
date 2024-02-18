@@ -14,10 +14,10 @@ class Book:
         return self._author
 
     def __str__(self):
-        return f"Книга {self.name}. Автор {self.author}"
+        return f'Книга {self.name}. Автор {self.author}'
 
     def __repr__(self):
-        return f"{self.__class__.__name__}(name={self.name!r}, author={self.author!r})"
+        return f'{self.__class__.__name__}(name={self.name!r}, author={self.author!r})'
 
 
 class PaperBook(Book):
@@ -41,13 +41,13 @@ class PaperBook(Book):
     def __str__(self):
         return f'PaperBook "{self.name}" by {self.author}, {self.pages} pages'
 
-    """
-    Перегружать класс PaperBook методом __repr__ имеет смысл, когда необходимо расширить метод и знать поле pages
-    Пример использования:
-    >>> example_book = PaperBook("Hearts of Tree", "Jack London", 350)
-    >>> copy_book = eval(example_book.__repr__())
-    """
     def __repr__(self):
+        """
+        Перегружать класс PaperBook методом __repr__ имеет смысл, когда необходимо расширить метод и знать поле pages.
+        Пример использования:
+        >>> example_book = PaperBook("Hearts of Tree", "Jack London", 350)
+        >>> copy_book = eval(example_book.__repr__())
+        """
         return f"{self.__class__.__name__}(name={self.name!r}, author={self.author!r}, pages={self.pages!r})"
 
 
@@ -72,27 +72,11 @@ class AudioBook(Book):
     def __str__(self):
         return f'AudioBook "{self.name}" by {self.author}, duration: {self.duration} hours'
 
-    """
-    Перегружать класс AudioBook методом __repr__ имеет смысл, когда необходимо расширить метод и знать поле duration
-    Пример использования:
-    >>> example_book = AudioBook("Hearts of Tree", "Jack London", 350)
-    >>> copy_book = eval(example_book.__repr__())
-    """
     def __repr__(self):
+        """
+        Перегружать класс AudioBook методом __repr__ имеет смысл, когда необходимо расширить метод и знать поле duration.
+        Пример использования:
+        >>> example_book = AudioBook("Hearts of Tree", "Jack London", 350.5)
+        >>> copy_book = eval(example_book.__repr__())
+        """
         return f"{self.__class__.__name__}(name={self.name!r}, author={self.author!r}, duration={self.duration!r})"
-
-
-book = Book("Hearts of Tree", "Jack London")
-print(book.__str__())
-print(book.__repr__(), "\n")
-paper_book = PaperBook("What Dreams May Come", "Richard Burton Matheson", 540)
-audio_book = AudioBook("Genetic", "Martin Moder", 50.2)
-print(paper_book.__str__())
-print(paper_book.__repr__(), "\n")
-print(audio_book.__str__())
-print(audio_book.__repr__())
-
-# example_book = PaperBook("Hearts of Tree", "Jack London", 350)
-# print(example_book, "\n")
-# copy_book = eval(example_book.__repr__())
-# print(copy_book)
